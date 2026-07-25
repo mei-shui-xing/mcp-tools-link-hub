@@ -226,6 +226,6 @@ Windows files, terminal, processes, screenshots, and safety-gated visible deskto
 
 An MCP server running directly on Android for apps, screen, touch, text, files, and selected device capabilities.
 
-- Repository: <https://github.com/mei-shui-xing/Grayson-Phone-MCP>
-- Chinese README: <https://github.com/mei-shui-xing/Grayson-Phone-MCP/blob/main/README.zh-CN.md>
-- Alpha APK: <https://github.com/mei-shui-xing/Grayson-Phone-MCP/releases/tag/v0.1.0-alpha>
+- Repository: <https://github.com/mei-shui-xing/android-remote-control-mcp>
+- Chinese README: <https://github.com/mei-shui-xing/android-remote-control-mcp/blob/main/README.zh-CN.md>
+- Alpha APK: <https://github.com/mei-shui-xing/android-remote-control-mcp/releases/tag/v0.1.0-alpha>

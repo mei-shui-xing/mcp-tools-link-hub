@@ -226,6 +226,6 @@ MCP 服务直接运行在 Android 手机上。需要调试本机环境时，也�
 
 用于直接在 Android 手机上运行 MCP 服务，操作应用、屏幕、触摸、文字、文件和其他设备能力。
 
-- 仓库：<https://github.com/mei-shui-xing/Grayson-Phone-MCP>
-- 中文说明：<https://github.com/mei-shui-xing/Grayson-Phone-MCP/blob/main/README.zh-CN.md>
-- Alpha APK：<https://github.com/mei-shui-xing/Grayson-Phone-MCP/releases/tag/v0.1.0-alpha>
+- 仓库：<https://github.com/mei-shui-xing/android-remote-control-mcp>
+- 中文说明：<https://github.com/mei-shui-xing/android-remote-control-mcp/blob/main/README.zh-CN.md>
+- Alpha APK：<https://github.com/mei-shui-xing/android-remote-control-mcp/releases/tag/v0.1.0-alpha>
