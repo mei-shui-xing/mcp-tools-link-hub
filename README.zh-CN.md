@@ -32,7 +32,7 @@
 
 | 场景 | 推荐项目 | 主要优势 |
 | --- | --- | --- |
-| 公开抖音视频语音转文字 | **Douyin Transcript MCP** | 本机 Qwen3-ASR 准确转录、分段读取和字幕搜索，私人开发模式下无需 VPS |
+| 公开抖音视频语音转文字 | **Douyin Transcript MCP** | 把链接转成便于 AI 分段阅读和搜索的本机字幕，私人开发模式下无需 VPS |
 | 抖音与创作者中心 | **Douyin Controlled MCP** | 结构化读取作品、评论和创作者中心状态，尤其适合集中查看与筛选多条后台评论 |
 | Windows 电脑 | **AI Desktop Control Bridge** | 文件、终端、进程、截图和带安全限制的可见桌面操作 |
 | Android 手机 | **Android Remote Control MCP** | 直接操作应用、屏幕、触摸、文字、文件和其他设备能力 |
@@ -48,6 +48,8 @@
 - 把模型、凭据和字幕缓存留在自己的电脑上。
 
 它只处理语音，不理解纯画面和画面文字。使用时电脑和 tunnel-client 必须保持运行。Secure MCP Tunnel 适用于私人/开发模式连接，不能替代公开插件提交所要求的稳定公网 HTTPS 服务。
+
+它的用途很单纯：输入一个公开抖音链接，输出可以由 AI 分段读取和检索的文字。仓库提供专门的 AI 部署与分层排障文档，使用者可以直接把仓库交给自己的 AI 在本机自助安装和检查。
 
 ### Douyin Controlled MCP
 
@@ -97,7 +99,7 @@ MCP 服务直接运行在 Android 手机上。需要调试本机环境时，也�
 - 阅读和修改项目文件；
 - 执行安装、构建、测试和诊断命令；
 - 查看进程、窗口、日志和本机环境；
-- 修复 Douyin Controlled MCP 的代码或配置问题；
+- 检查和修复 Douyin Transcript MCP、Douyin Controlled MCP 的代码或配置问题；
 - 手机通过 USB 连接后，使用 ADB 检查 Android 项目的环境；
 - 根据当前报错进行最小范围修复并重新测试。
 
@@ -226,10 +228,12 @@ MCP 服务直接运行在 Android 手机上。需要调试本机环境时，也�
 
 ### Douyin Transcript MCP
 
-在用户自己的 Windows 电脑上使用 Qwen3-ASR，把公开抖音链接转换为可分段读取和搜索的字幕。推荐的私人 ChatGPT 连接不需要 VPS。
+在用户自己的 Windows 电脑上使用 Qwen3-ASR，把公开抖音链接转换成便于 AI 分段读取和搜索的文字。推荐的私人 ChatGPT 连接不需要 VPS，部署与排查优先交给使用者自己的 AI 按仓库文档完成。
 
 - 仓库：<https://github.com/mei-shui-xing/douyin-transcript-mcp>
 - 中文说明：<https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/README.md>
+- AI 部署与验收：<https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/AI_SETUP.md>
+- AI 分层排障：<https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/TROUBLESHOOTING.md>
 - 安全说明：<https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/SECURITY.md>
 
 ### Douyin Controlled MCP

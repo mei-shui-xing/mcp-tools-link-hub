@@ -32,7 +32,7 @@ All four projects are therefore published independently. Use whichever one match
 
 | Scenario | Recommended project | Main advantage |
 | --- | --- | --- |
-| Public Douyin video speech transcription | **Douyin Transcript MCP** | Local Qwen3-ASR transcription and searchable subtitle cache, with no VPS required for private developer-mode use |
+| Public Douyin video speech transcription | **Douyin Transcript MCP** | Turns links into locally generated text that an AI can read in chunks and search, with no VPS required for private developer-mode use |
 | Douyin and Creator Center | **Douyin Controlled MCP** | Structured access to posts, comments, and Creator Center state, especially for reviewing and filtering multiple backend comments |
 | Windows PC | **AI Desktop Control Bridge** | Files, terminal, processes, screenshots, and safety-gated visible desktop control |
 | Android phone | **Android Remote Control MCP** | Direct access to apps, screen, touch, text, files, and selected device capabilities |
@@ -48,6 +48,8 @@ Useful for:
 - keeping models, credentials, and transcript caches on the user's own computer.
 
 It is speech-only and does not understand visual-only content or on-screen text. The computer and tunnel client must be running during use. Secure MCP Tunnel is for private/developer-mode connections; it is not a substitute for the stable public HTTPS endpoint required for public plugin submission.
+
+Its purpose is deliberately narrow: give it a public Douyin link and receive text that an AI can read in chunks and search. The repository includes dedicated AI deployment and layered troubleshooting runbooks so each user can hand it to their own AI for self-service local setup.
 
 ### Douyin Controlled MCP
 
@@ -97,7 +99,7 @@ Once the desktop bridge is working, an AI can—within the device owner's author
 - read and edit project files;
 - run install, build, test, and diagnostic commands;
 - inspect processes, windows, logs, and the local environment;
-- repair Douyin Controlled MCP code or configuration;
+- inspect and repair Douyin Transcript MCP or Douyin Controlled MCP code and configuration;
 - inspect the Android project through ADB after the phone is connected over USB;
 - make a minimal fix for a specific error and run the relevant tests again.
 
@@ -226,10 +228,12 @@ This entry repository only provides descriptions and links. It does not replace 
 
 ### Douyin Transcript MCP
 
-Local-first, read-only speech transcription for public Douyin links using Qwen3-ASR on the user's Windows PC. The recommended private ChatGPT path does not require a VPS.
+Local-first, read-only conversion of public Douyin links into AI-readable text using Qwen3-ASR on the user's Windows PC. The recommended private ChatGPT path does not require a VPS, and setup is documented for self-service use with the user's own AI.
 
 - Repository: <https://github.com/mei-shui-xing/douyin-transcript-mcp>
 - Chinese README: <https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/README.md>
+- AI deployment and acceptance: <https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/AI_SETUP.md>
+- AI layered troubleshooting: <https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/TROUBLESHOOTING.md>
 - Security: <https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/SECURITY.md>
 
 ### Douyin Controlled MCP
