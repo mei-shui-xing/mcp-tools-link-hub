@@ -1,18 +1,18 @@
-# Three MCP Projects for ChatGPT
+# Four MCP Projects for ChatGPT
 
 [简体中文](README.zh-CN.md)
 
-This is a lightweight entry page for three independent, experimental MCP projects covering Douyin and Creator Center, Windows PCs, and Android phones.
+This is a lightweight entry page for four independent, experimental MCP projects covering local Douyin transcription, Douyin and Creator Center, Windows PCs, and Android phones.
 
 They were primarily organized for use with ChatGPT, although other compatible MCP clients can follow each project's own documentation.
 
-This is not a bundled codebase, a monorepo, a new framework, or a brand. Each project keeps its own source code, releases, versioning, license, security boundaries, and issue tracker. Choose only the project you need; there is no requirement to install all three.
+This is not a bundled codebase, a monorepo, a new framework, or a brand. Each project keeps its own source code, releases, versioning, license, security boundaries, and issue tracker. Choose only the project you need; there is no requirement to install all four.
 
 > These are independent community projects. They are not official projects of OpenAI, ChatGPT, Douyin, ByteDance, Android, or Microsoft.
 
-## How the three projects happened
+## How the four projects happened
 
-There was never an original plan to build a three-project collection.
+There was never an original plan to build a four-project collection.
 
 The first MVP was very small: I only wanted ChatGPT to look through my own saved Douyin videos. More features were added gradually during real use, including reading posts and comments, viewing Creator Center, replying to comments, and publishing content.
 
@@ -20,19 +20,34 @@ Douyin's web interface changes frequently, and some operations can also trigger 
 
 A Windows desktop bridge was then built to make the Douyin project easier to debug and to provide a general fallback when a specialized route was unavailable. Later, curiosity led to an Android phone-control MCP.
 
+A fourth project was later extracted from the transcription work: Douyin Transcript MCP. It deliberately keeps only five read-only speech-transcription tools and runs Qwen3-ASR on the user's own Windows PC. The recommended private ChatGPT connection uses OpenAI Secure MCP Tunnel over outbound HTTPS, so each user can run it without a VPS or public inbound port.
+
 The funny part is that the desktop bridge and phone-control project—originally created for debugging, fallback, or simple curiosity—often turned out to be smoother and more broadly useful in everyday tasks. Douyin is also fundamentally phone-first, so many actions feel more natural when performed directly on Android.
 
 That does not make the specialized Douyin project obsolete. Generic desktop and phone control usually works one visible step at a time, while Douyin Controlled MCP can read structured state. For reviewing many Creator Center comments, filtering content, and identifying an exact post or comment target, that structured access is still much more convenient than screenshots and coordinate clicks alone.
 
-All three projects are therefore published independently. Use whichever one matches the task; installing all of them is optional.
+All four projects are therefore published independently. Use whichever one matches the task; installing all of them is optional.
 
 ## Which one should I choose?
 
 | Scenario | Recommended project | Main advantage |
 | --- | --- | --- |
+| Public Douyin video speech transcription | **Douyin Transcript MCP** | Local Qwen3-ASR transcription and searchable subtitle cache, with no VPS required for private developer-mode use |
 | Douyin and Creator Center | **Douyin Controlled MCP** | Structured access to posts, comments, and Creator Center state, especially for reviewing and filtering multiple backend comments |
 | Windows PC | **AI Desktop Control Bridge** | Files, terminal, processes, screenshots, and safety-gated visible desktop control |
 | Android phone | **Android Remote Control MCP** | Direct access to apps, screen, touch, text, files, and selected device capabilities |
+
+### Douyin Transcript MCP
+
+Useful for:
+
+- turning a public Douyin video link into accurate spoken-word transcripts;
+- running Qwen3-ASR locally instead of sending audio to a paid transcription API;
+- reading long transcripts in chunks or searching them by keyword and timestamp;
+- connecting a private local MCP server to ChatGPT through the user's own OpenAI Secure MCP Tunnel;
+- keeping models, credentials, and transcript caches on the user's own computer.
+
+It is speech-only and does not understand visual-only content or on-screen text. The computer and tunnel client must be running during use. Secure MCP Tunnel is for private/developer-mode connections; it is not a substitute for the stable public HTTPS endpoint required for public plugin submission.
 
 ### Douyin Controlled MCP
 
@@ -55,9 +70,9 @@ Useful for:
 - starting, stopping, or inspecting processes;
 - reading windows, screenshots, and visible UI state;
 - operating allowlisted Windows applications;
-- installing, testing, diagnosing, and repairing the other two projects.
+- installing, testing, diagnosing, and repairing the other projects.
 
-The desktop bridge is both a standalone Windows tool and a local maintenance entry point for Douyin Controlled MCP and Android Remote Control MCP.
+The desktop bridge is both a standalone Windows tool and a local maintenance entry point for the other projects.
 
 ### Android Remote Control MCP
 
@@ -164,7 +179,7 @@ For that reason, bugs should first be handled by the user's own AI using the rep
 
 ## Safety boundaries
 
-All three projects should be treated as experimental Alpha software.
+All four projects should be treated as experimental Alpha software.
 
 Before use, read the target project's own security documentation and follow these rules:
 
@@ -201,12 +216,21 @@ Each project keeps its own source attribution, license, third-party notices, and
 - **AI Desktop Control Bridge** is a derivative fork of [Desktop Commander MCP](https://github.com/wonderwhy-er/DesktopCommanderMCP);
 - **Android Remote Control MCP** is derived from [android-remote-control-mcp](https://github.com/danielealbano/android-remote-control-mcp);
 - **Douyin Controlled MCP** documents its own origin, third-party components, and security boundaries in its repository.
+- **Douyin Transcript MCP** is a clean, allowlisted extraction of the read-only transcription capability from Douyin Controlled MCP and documents its own dependency and model licenses.
 
 Before redistributing, modifying, or integrating a project, follow the license and documentation in that project's repository.
 
-This entry repository only provides descriptions and links. It does not replace or combine the three projects' licenses.
+This entry repository only provides descriptions and links. It does not replace or combine the four projects' licenses.
 
 ## Project links
+
+### Douyin Transcript MCP
+
+Local-first, read-only speech transcription for public Douyin links using Qwen3-ASR on the user's Windows PC. The recommended private ChatGPT path does not require a VPS.
+
+- Repository: <https://github.com/mei-shui-xing/douyin-transcript-mcp>
+- Chinese README: <https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/README.md>
+- Security: <https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/SECURITY.md>
 
 ### Douyin Controlled MCP
 

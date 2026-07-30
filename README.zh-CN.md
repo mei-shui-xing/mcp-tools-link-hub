@@ -1,18 +1,18 @@
-# 给 ChatGPT 使用的三个 MCP 项目
+# 给 ChatGPT 使用的四个 MCP 项目
 
 [English](README.md)
 
-这是一个轻量的项目入口，整理了三个彼此独立的实验性 MCP 项目，分别用于操作抖音与创作者中心、Windows 电脑和 Android 手机。
+这是一个轻量的项目入口，整理了四个彼此独立的实验性 MCP 项目，分别用于本机抖音语音转文字、操作抖音与创作者中心、Windows 电脑和 Android 手机。
 
 它们主要是为了更方便地交给 ChatGPT 使用而整理的，其他兼容 MCP 的客户端也可以参考各项目文档接入。
 
-这里不是代码合集，也不是一个需要整体安装的新框架或品牌。三个项目继续保留各自的源码、版本、Release、许可证、安全边界和问题追踪。你只需要根据自己的需求选择其中一个项目，不必全部安装。
+这里不是代码合集，也不是一个需要整体安装的新框架或品牌。四个项目继续保留各自的源码、版本、Release、许可证、安全边界和问题追踪。你只需要根据自己的需求选择其中一个项目，不必全部安装。
 
 > 这些项目均为独立社区项目，与 OpenAI、ChatGPT、抖音、字节跳动、Android 和 Microsoft 官方无关。
 
-## 它们是怎么长出来的
+## 这四个项目是怎么长出来的
 
-最开始其实没有计划做三个项目。
+最开始其实没有计划做四个项目。
 
 最早的 MVP 很简单：只是想让 ChatGPT 看看我自己的抖音收藏。后来在实际使用过程中，才一点点加入读取作品和评论、查看创作者中心、回复评论、发布作品等功能。
 
@@ -20,19 +20,34 @@
 
 为了方便调试抖音项目，也为了在专用功能暂时不可用时提供一个通用兜底，过程中又做了 Windows 电脑桥。后来中途突然对控制手机产生兴趣，于是又折腾出了 Android 手机 MCP。
 
+后来又把其中的语音转写能力单独抽成了第四个项目：Douyin Transcript MCP。它刻意只保留五个只读字幕工具，在用户自己的 Windows 电脑上运行 Qwen3-ASR。推荐使用本人自己的 OpenAI Secure MCP Tunnel 通过出站 HTTPS 连接 ChatGPT，因此私人开发模式下不需要 VPS，也不需要开放公网入站端口。
+
 有点好笑的是，原本为了调试和兜底出现的电脑桥，以及后来临时起意做的手机控制，在不少日常场景里反而更通用、更流畅。尤其是抖音本来就以手机端为主，很多操作直接控制手机会比操作电脑网页自然一些。
 
 但这并不意味着抖音专用项目没有价值。电脑和手机控制通常需要根据当前屏幕一步步操作，而 Douyin Controlled MCP 可以读取结构化状态。需要集中查看创作者中心的多条后台评论、筛选内容、确认具体作品或评论目标时，它仍然比单纯截图和点击方便很多。
 
-所以最后干脆把三个项目都公开。需要哪个就使用哪个，不必全部安装。
+所以最后干脆把四个项目都公开。需要哪个就使用哪个，不必全部安装。
 
 ## 应该选择哪一个
 
 | 场景 | 推荐项目 | 主要优势 |
 | --- | --- | --- |
+| 公开抖音视频语音转文字 | **Douyin Transcript MCP** | 本机 Qwen3-ASR 准确转录、分段读取和字幕搜索，私人开发模式下无需 VPS |
 | 抖音与创作者中心 | **Douyin Controlled MCP** | 结构化读取作品、评论和创作者中心状态，尤其适合集中查看与筛选多条后台评论 |
 | Windows 电脑 | **AI Desktop Control Bridge** | 文件、终端、进程、截图和带安全限制的可见桌面操作 |
 | Android 手机 | **Android Remote Control MCP** | 直接操作应用、屏幕、触摸、文字、文件和其他设备能力 |
+
+### Douyin Transcript MCP
+
+适合：
+
+- 把公开抖音视频链接转换为准确的语音字幕；
+- 在自己电脑上运行 Qwen3-ASR，不把音频交给付费转录 API；
+- 分段读取长字幕，或按关键词和时间点搜索；
+- 使用本人自己的 OpenAI Secure MCP Tunnel 把本机私有 MCP 连接到 ChatGPT；
+- 把模型、凭据和字幕缓存留在自己的电脑上。
+
+它只处理语音，不理解纯画面和画面文字。使用时电脑和 tunnel-client 必须保持运行。Secure MCP Tunnel 适用于私人/开发模式连接，不能替代公开插件提交所要求的稳定公网 HTTPS 服务。
 
 ### Douyin Controlled MCP
 
@@ -55,9 +70,9 @@
 - 启动、停止或检查进程；
 - 获取窗口、截图和可见界面状态；
 - 操作经过允许的 Windows 桌面程序；
-- 检查、安装、构建、测试和修复另外两个项目。
+- 检查、安装、构建、测试和修复其他项目。
 
-电脑桥不仅可以独立完成通用电脑任务，也可以作为 Douyin Controlled MCP 和 Android Remote Control MCP 的本地安装、调试和维修入口。
+电脑桥不仅可以独立完成通用电脑任务，也可以作为其他项目的本地安装、调试和维修入口。
 
 ### Android Remote Control MCP
 
@@ -73,7 +88,7 @@ MCP 服务直接运行在 Android 手机上。需要调试本机环境时，也�
 
 ## 推荐的安装与维修顺序
 
-如果只需要其中一个项目，可以直接安装对应项目，不必三个全部配置。
+如果只需要其中一个项目，可以直接安装对应项目，不必四个全部配置。
 
 如果准备长期使用，或者希望后续出现问题时能让 AI 自己检查和修复，建议优先连接 **AI Desktop Control Bridge**。
 
@@ -164,7 +179,7 @@ MCP 服务直接运行在 Android 手机上。需要调试本机环境时，也�
 
 ## 使用边界
 
-三个项目目前都属于实验性 Alpha 软件。
+四个项目目前都属于实验性 Alpha 软件。
 
 使用前请阅读对应项目自己的安全说明，并遵守以下原则：
 
@@ -196,17 +211,26 @@ MCP 服务直接运行在 Android 手机上。需要调试本机环境时，也�
 
 ## 来源与许可证
 
-三个项目分别保留自己的来源、许可证、第三方声明和安全说明：
+四个项目分别保留自己的来源、许可证、第三方声明和安全说明：
 
 - **AI Desktop Control Bridge** 是 [Desktop Commander MCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) 的衍生 Fork；
 - **Android Remote Control MCP** 基于 [android-remote-control-mcp](https://github.com/danielealbano/android-remote-control-mcp) 继续开发；
 - **Douyin Controlled MCP** 的项目来源、第三方组件和安全说明记录在其独立仓库中。
+- **Douyin Transcript MCP** 是从 Douyin Controlled MCP 中按白名单抽出的独立只读转录项目，并在自己的仓库中记录依赖与模型许可证。
 
 重新分发、修改或集成任何项目之前，请以对应仓库中的许可证和说明为准。
 
-这个入口仓库只提供介绍和链接，不会替代或合并三个项目的许可证。
+这个入口仓库只提供介绍和链接，不会替代或合并四个项目的许可证。
 
 ## 项目入口
+
+### Douyin Transcript MCP
+
+在用户自己的 Windows 电脑上使用 Qwen3-ASR，把公开抖音链接转换为可分段读取和搜索的字幕。推荐的私人 ChatGPT 连接不需要 VPS。
+
+- 仓库：<https://github.com/mei-shui-xing/douyin-transcript-mcp>
+- 中文说明：<https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/README.md>
+- 安全说明：<https://github.com/mei-shui-xing/douyin-transcript-mcp/blob/main/SECURITY.md>
 
 ### Douyin Controlled MCP
 
@@ -217,7 +241,7 @@ MCP 服务直接运行在 Android 手机上。需要调试本机环境时，也�
 
 ### AI Desktop Control Bridge
 
-用于 Windows 文件、终端、进程、截图和带安全限制的可见桌面控制，也可以作为另外两个项目的本地安装与维修入口。
+用于 Windows 文件、终端、进程、截图和带安全限制的可见桌面控制，也可以作为其他项目的本地安装与维修入口。
 
 - 仓库：<https://github.com/mei-shui-xing/ai-desktop-control-bridge>
 - 中文说明：<https://github.com/mei-shui-xing/ai-desktop-control-bridge/blob/main/README.zh-CN.md>
